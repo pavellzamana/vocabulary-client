@@ -19,7 +19,7 @@ self.addEventListener('activate', (event) => {
         );
       })
       .catch((error) => {
-        throw new Error('Faild to get cache, error: ', error.message);
+        throw new Error('Failed to get cache, error: ', error.message);
       })
   );
 });
@@ -29,7 +29,7 @@ self.addEventListener('fetch', (event) => {
   event.waitUntil(updateCache(event));
 });
 
-/* function witch try to find request in chache, otherwise fetch this request and put it into cache */
+/* function witch try to find request in cache, otherwise fetch this request and put it into cache */
 function takeCacheOrFetch(event) {
   return caches.open(CACHE_NAME).then((cache) => {
     return cache.match(event.request).then((response) => {
@@ -40,12 +40,13 @@ function takeCacheOrFetch(event) {
             if (!(event.request.url.indexOf('http') === 0)) {
               return response;
             }
-            cache.put(event.request, response.clone());
-
+            if (event.request.method !== 'POST') {
+                cache.put(event.request, response.clone());
+            }
             return response;
           })
           .catch((error) => {
-            throw new Error('Faild to fetch request, error: ', error.message);
+            throw new Error('Failed to fetch request, error: ', error.message);
           })
       );
     });
@@ -60,18 +61,20 @@ function updateCache(event) {
         if (!(event.request.url.indexOf('http') === 0)) {
           return response;
         }
-        cache.put(event.request, response);
+        if (event.request.method !== 'POST') {
+            cache.put(event.request, response);
+        }
       })
       .catch((error) => {
-        throw new Error('Faild to update cache, error: ', error.message);
+        throw new Error('Failed to update cache, error: ', error.message);
       })
   );
 }
 
-/* listener onpush event, show message acording event data */
+/* listener onpush event, show message according event data */
 self.addEventListener('push', function (event) {
   if (event.data) {
-    self.registration.showNotification('Unforgiveable Curses', {
+    self.registration.showNotification('Unforgivable Curses', {
       body: event.data.text(),
     });
   }
@@ -79,7 +82,7 @@ self.addEventListener('push', function (event) {
 
 /* 
 listener onnotificationclick event, 
-chech if at least one client is open and then focus on it,
+check if at least one client is open and then focus on it,
 otherwise open new client 
 */
 self.addEventListener('notificationclick', (event) => {
@@ -93,7 +96,7 @@ self.addEventListener('notificationclick', (event) => {
         return self.clients.openWindow('our/url/page');
       })
       .catch((error) => {
-        throw new Error('Faild to get all clients, error: ', error.message);
+        throw new Error('Failed to get all clients, error: ', error.message);
       })
   );
 });

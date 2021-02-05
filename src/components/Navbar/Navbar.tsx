@@ -20,7 +20,7 @@ export const Navbar: React.FC = () => (
           </li>
           <li className={styles.menuItem}>
             <NavLink className={styles.menuLink} to="/signin">
-              Sigin
+              Sign in
             </NavLink>
           </li>
         </ul>

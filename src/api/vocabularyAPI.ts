@@ -3,7 +3,6 @@ import {IMapItem} from "@/features/Map/mapSlice";
 
 export const getWords = async (user_id) => {
     const response = await $host.post('api/words/find', {user_id});
-    console.log(response.data);
     return  response.data;
 }
 

@@ -53,7 +53,6 @@ export default map.reducer;
 export const fetchMap = (userId: number): AppThunk => async (dispatch) => {
   try {
     const map = await getWords(userId);
-    console.log(map);
     dispatch(setMapSuccess(map));
   } catch (error) {
     dispatch(setMapFailure(error.toString()));

@@ -1,0 +1,61 @@
+@import '@/styles/variables.less';
+@import '@/components/Button/button.less';
+
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+  border: 2px solid @map-border-color;
+  border-radius: 5px;
+  box-sizing: content-box;
+}
+
+.mapList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.mapWrapper {
+  max-height: 625px;
+  overflow: auto;
+}
+
+.modalBody {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  padding: 40px 60px;
+  border-radius: 10px;
+  background-color: @edit-modal-bg-color;
+}
+
+.buttonsRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 150px;
+  align-items: end;
+}
+
+.buttonAdd,
+.buttonCancel {
+  .button();
+  height: 40px;
+  line-height: 40px;
+  margin-top: 40px;
+}
+
+.buttonText {
+  margin-right: 10px;
+}
+
+.buttonCancel {
+  background-color: @edit-modal-cancel-button-color;
+
+  &:hover {
+    background-color: @edit-modal-cancel-button-color-active;
+  }
+}

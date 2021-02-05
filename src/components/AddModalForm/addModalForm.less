@@ -1,0 +1,32 @@
+@import '@/styles/variables.less';
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 50px;
+  grid-template-rows: 35px;
+  gap: 30px;
+  margin-bottom: 50px;
+
+  .input {
+    padding: 0 15px;
+    font-size: 18px;
+    line-height: 35px;
+    color: rgba(0, 0, 0, 0.85);
+    border-radius: 3px;
+    background-color: @add-popup-input-color;
+  }
+
+  .button {
+    background-color: @add-popup-button-color;
+    border-radius: 3px;
+    color: @add-popup-header-text-color;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: @main-color-active;
+      color: @main-text-color-active;
+    }
+  }
+}

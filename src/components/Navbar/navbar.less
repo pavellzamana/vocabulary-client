@@ -1,0 +1,46 @@
+@import '@/styles/variables.less';
+
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: @navbar-bg-color;
+  z-index: 100;
+}
+
+.container {
+  max-width: 1280px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuList {
+  display: flex;
+  margin: 0;
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  padding: 0 30px;
+  font-size: 24px;
+  line-height: 32px;
+  color: @navbar-text-color;
+
+  &:hover {
+    background-color: @navbar-bg-color-active;
+    color: @navbar-text-color-active;
+  }
+}
+
+.logo {
+  font-size: 24px;
+  line-height: 32px;
+  color: @navbar-text-color;
+}

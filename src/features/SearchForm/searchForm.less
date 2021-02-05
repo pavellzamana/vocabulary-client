@@ -1,0 +1,159 @@
+@import '@/styles/variables.less';
+@import '@/components/Button/button.less';
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px auto 50px;
+
+  :global {
+    .ant-select:not(.ant-select-customize-input) {
+      .ant-select-selector {
+        height: 50px;
+        width: 150px;
+        border-radius: 5px;
+        background-color: transparent;
+        color: @main-color;
+      }
+
+      .ant-select-selection-search-input {
+        height: 50px;
+      }
+    }
+
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+      border-width: 2px !important;
+      border: 2px solid @search-input-border-color;
+    }
+    .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+      border: 2px solid @search-input-border-color-active;
+    }
+    .form_form__1O_0V
+      .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+      .ant-select-selector {
+      border: none;
+    }
+
+    .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+      .ant-select-selector {
+      border-width: 2px !important;
+    }
+
+    .form_form__1O_0V
+      .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+      .ant-select-selector {
+      border: 2px solid @search-input-border-color-active;
+    }
+
+    .ant-select-single.ant-select-show-arrow .ant-select-selection-item,
+    .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+      .ant-select-selector {
+      border-radius: 5px;
+      border: 2px solid @search-input-border-color-active;
+      box-shadow: none;
+    }
+
+    .ant-select-arrow {
+      color: @main-color-active;
+    }
+
+    .anticon-search {
+      font-size: 24px;
+    }
+  }
+}
+
+.input {
+  height: 50px;
+  padding: 0 20px;
+  margin-right: 10px;
+  flex-grow: 1;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid @search-input-border-color;
+  line-height: 50px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.7);
+
+  transition: all 0.2s ease-in-out;
+
+  &:focus,
+  &:hover {
+    border-color: @search-input-border-color-active;
+  }
+}
+
+.modalBody {
+  position: fixed;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  max-width: 1400px;
+  min-width: 1000px;
+  height: 800px;
+  width: 80%;
+  padding: 20px 50px;
+  border-radius: 10px;
+  background-color: @add-popup-bg-color;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 510px;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttonSearch,
+.buttonAdd,
+.modalButton {
+  .button();
+}
+
+.buttonSearch {
+  height: 50px;
+  margin-left: 10px;
+}
+
+.buttonAdd {
+  padding: 0;
+  width: 50px;
+  height: 40px;
+  flex-grow: 0;
+  margin: 20px 0 0;
+  background-color: transparent;
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.buttonText {
+  margin-right: 10px;
+}
+
+.modalButton {
+  margin-left: 20px;
+}

@@ -1,0 +1,24 @@
+@import '@/styles/variables.less';
+
+.header {
+  display: grid;
+  grid-template-columns: 390px 390px 1fr;
+  background-color: @map-header-bg-color;
+  border-bottom: 2px solid @map-border-color;
+  color: @main-color;
+}
+
+.word,
+.transcription {
+  border-right: 2px solid @map-border-color;
+}
+
+.word,
+.transcription,
+.translate {
+  height: 50px;
+  padding: 0 20px;
+  font-size: 20px;
+  line-height: 50px;
+  font-weight: 500;
+}

@@ -12,7 +12,7 @@ export const setWordsToDB = async (userId: number, map: IMapItem[]) => {
                                               transcription: item.transcription,
                                               translation: item.translation,
                                               id: item.id,
-                                              user_id: userId })));
+                                              userId})));
 }
 
 export const updateMap = async (userId: number, map: IMapItem) => {
@@ -20,7 +20,7 @@ export const updateMap = async (userId: number, map: IMapItem) => {
                                                    transcription: map.transcription,
                                                    translation: map.translation,
                                                    id: Number.parseInt(map.id),
-                                                   user_id: userId });
+                                                   userId});
 }
 
 export const deleteMap = async (id: string) => {

@@ -1,26 +1,26 @@
 import {$host} from "@/api/index";
 import {IMapItem} from "@/features/Map/mapSlice";
 
-export const getWords = async (user_id) => {
-    const response = await $host.post('api/words/find', {user_id});
+export const getWords = async (userId) => {
+    const response = await $host.post('api/words/find', {userId});
     return  response.data;
 }
 
-export const setWordsToDB = async (user_id: number, map: IMapItem[]) => {
+export const setWordsToDB = async (userId: number, map: IMapItem[]) => {
     await Promise.all(map.map((item) =>
         $host.post('api/words/add', {word: item.word,
                                               transcription: item.transcription,
                                               translation: item.translation,
                                               id: item.id,
-                                              user_id })));
+                                              user_id: userId })));
 }
 
-export const updateMap = async (user_id: number, map: IMapItem) => {
+export const updateMap = async (userId: number, map: IMapItem) => {
     await $host.post('api/words/update', {word: map.word,
                                                    transcription: map.transcription,
                                                    translation: map.translation,
                                                    id: Number.parseInt(map.id),
-                                                   user_id });
+                                                   user_id: userId });
 }
 
 export const deleteMap = async (id: string) => {
